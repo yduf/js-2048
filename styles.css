@@ -3,14 +3,18 @@
   font-family: Arial;
 }
 
-body {
-  background-color: #333;
+#board-wrapper {
+  --cell-size: 25%;
+  --cell-gap:  0%;
+  --cell-radius: 2%;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
   margin: 0;
   font-size: 7.5vmin;
+  aspect-ratio: 1 / 1; /* Sets height equal to width */
+  width: 50%; /* Takes up the full width of the parent */
 }
 
 #game-board {
@@ -19,14 +23,16 @@ body {
   grid-template-rows: repeat(var(--grid-size), var(--cell-size));
   background-color: #CCC;
   gap: var(--cell-gap);
-  border-radius: 1vmin;
+  border-radius: var(--cell-radius);
   padding: var(--cell-gap);
   position: relative;
+  width: 100%;
+  height: 100%;
 }
 
 .cell {
   background-color: #AAA;
-  border-radius: 1vmin;
+  border-radius: var(--cell-radius);
 }
 
 .tile {
@@ -37,7 +43,7 @@ body {
   width: var(--cell-size);
   height: var(--cell-size);
   background-color: red;
-  border-radius: 1vmin;
+  border-radius: var(--cell-radius);
   top: calc(var(--y) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
   left: calc(var(--x) * (var(--cell-size) + var(--cell-gap)) + var(--cell-gap));
   font-weight: bold;
